@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz Game</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    /* Estilo adicional para centralizar a página */
+    html, body {
+      height: 100%;
+    }
+    .center-content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="center-content">
+    <div class="container mt-5">
+      <h1 class="mb-4">Quiz Game</h1>
+      <h3 id="questionCounter">Questões restantes: 17</h3> <!-- Adicionado o contador de questões -->
+      <div id="nameInput">
+        <input type="text" class="form-control mb-3" id="playerName" placeholder="Digite seu nome">
+        <button id="startButton" class="btn btn-primary">Começar</button>
+      </div>
+      <div id="quiz" style="display: none;">
+        <h3 id="question"></h3>
+        <div id="choices" class="mt-4"></div>
+        <button id="nextButton" class="btn btn-primary mt-4">Confirmar</button>
+      </div>
+      <div id="results" class="mt-4" style="display: none;">
+        <h3>Resultado</h3>
+        <p id="score"></p>
+        <button id="restartButton" class="btn btn-primary">Reiniciar</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="quiz.js"></script>
+</body>
+</html>
