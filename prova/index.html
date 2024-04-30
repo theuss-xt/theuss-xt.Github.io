@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista de Tarefas com Bootstrap</title>
+  <!-- Adicionando Bootstrap -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* Estilos CSS adicionais */
+    .completed {
+      text-decoration: line-through;
+      color: #0c0b0b;
+    }
+  </style>
+</head>
+<body>
+  <div class="container mt-5">
+    <!-- Título da lista de tarefas -->
+    <h1>Lista de Tarefas</h1>
+    <!-- Formulário e botão para adicionar tarefas -->
+    <div class="input-group mb-3">
+      <input type="text" id="taskInput" class="form-control" placeholder="Adicionar Tarefa">
+      <div class="input-group-append">
+        <button class="btn btn-primary" type="button" onclick="addTask()">Adicionar</button>
+      </div>
+    </div>
+    <!-- Lista de tarefas -->
+    <ul id="taskList" class="list-group">
+    </ul>
+  </div>
+
+  <script>
+    // Javascript para adicionar tarefas e marcar como concluídas
+    function addTask() {
+      const taskInput = document.getElementById('taskInput');
+      const taskList = document.getElementById('taskList');
+      const newTask = document.createElement('li');
+      newTask.textContent = taskInput.value;
+      newTask.className = 'list-group-item';
+      newTask.onclick = function() {
+        newTask.classList.toggle('completed');
+      };
+
+      // Adicionando botão de exclusão
+      const deleteButton = document.createElement('button');
+      deleteButton.textContent = 'Excluir';
+      deleteButton.className = 'btn btn-danger btn-sm float-right ml-2';
+      deleteButton.onclick = function(event) {
+        event.stopPropagation(); // Impede que o evento de clique na tarefa seja ativado
+        taskList.removeChild(newTask);
+      };
+
+      newTask.appendChild(deleteButton);
+      taskList.appendChild(newTask);
+      taskInput.value = '';
+    }
+  </script>
+  <!-- Adicionando Bootstrap JS (opcional, necessário apenas para certos componentes) -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
